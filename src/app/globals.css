@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   ETC SAT MAROC — design tokens (see docs/DESIGN_SYSTEM.md)
+------------------------------------------------------------------- */
+@theme {
+  --color-red: #e5252a;
+  --color-red-dark: #c41b20;
+  --color-navy: #172b3a;
+  --color-navy-soft: #24404f;
+  --color-ink: #20272d;
+  --color-mute: #5f6b73; /* body secondary text — AA on white */
+  --color-steel: #7a858d; /* secondary grey — labels on white ≥ 18px / decorative */
+  --color-mist: #f5f6f7;
+  --color-line: #e3e6e8;
+
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-xs: 26rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee var(--marquee-duration, 60s) linear infinite;
+  --animate-page-in: page-in 0.6s var(--ease-out-expo) both;
+  --animate-pulse-ring: pulse-ring 2.8s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  @keyframes page-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 14px, 0);
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.4);
+      opacity: 0.55;
+    }
+    100% {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-red);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 82.5rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 40rem) {
+    .container-site {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 64rem) {
+    .container-site {
+      padding-inline: 3rem;
+    }
+  }
+
+  /* Type scale */
+  .text-display {
+    font-size: clamp(2.25rem, 1.2rem + 4.4vw, 4.5rem);
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .text-h1 {
+    font-size: clamp(2.125rem, 1.4rem + 3vw, 3.75rem);
+    line-height: 1.06;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .text-h2 {
+    font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+    line-height: 1.12;
+    font-weight: 700;
+  }
+  .text-h3 {
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  .text-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.6;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-mute);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 2rem;
+    height: 2px;
+    background: var(--color-red);
+  }
+
+  .section {
+    padding-block: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  }
+
+  /* Underline link used for "discover more" actions */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    padding-bottom: 0.25rem;
+    background: linear-gradient(var(--color-red), var(--color-red)) left bottom / 100% 2px no-repeat;
+    transition: background-size 0.45s var(--ease-out-expo), color 0.2s;
+  }
+  .link-arrow svg {
+    transition: transform 0.45s var(--ease-out-expo);
+  }
+  .link-arrow:hover,
+  .group:hover .link-arrow {
+    color: var(--color-red);
+  }
+  .link-arrow:hover svg,
+  .group:hover .link-arrow svg {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
