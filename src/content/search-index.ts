@@ -1,5 +1,5 @@
 import { history, mission, vision } from "./about";
-import { clients, partners, sourcingReferences } from "./network";
+import { clients, manufacturers, partners, sourcingReferences } from "./network";
 import { sectors } from "./sectors";
 import { centralisation, repair, services, sourcing } from "./services";
 import { offices, site } from "./site";
@@ -94,6 +94,22 @@ export const searchIndex: SearchEntry[] = [
     excerpt: `Référence de notre réseau de sourcing — ${r.location}`,
     keywords: "sourcing réseau fournisseur",
     href: "/partenaires#reseau-sourcing",
+    category: "Partenaires" as const,
+  })),
+  {
+    id: "marques-fabricants",
+    title: "Marques & fabricants",
+    excerpt: "Pièces et équipements des grandes marques industrielles, et autres fabricants sur demande.",
+    keywords: `marque fabricant constructeur ${manufacturers.join(" ")}`,
+    href: "/partenaires#marques-fabricants",
+    category: "Partenaires" as const,
+  },
+  ...manufacturers.map((m) => ({
+    id: `marque-${m}`,
+    title: m,
+    excerpt: "Marques & fabricants",
+    keywords: "marque fabricant constructeur pièce",
+    href: "/partenaires#marques-fabricants",
     category: "Partenaires" as const,
   })),
   ...offices.map((o) => ({

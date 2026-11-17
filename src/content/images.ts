@@ -13,9 +13,10 @@ export type SiteImage = {
   position?: string;
   credit: {
     author: string;
-    source: "Unsplash" | "Wikimedia Commons";
+    source: "Unsplash" | "Wikimedia Commons" | "Pexels" | "Client";
     license: string;
-    url: string;
+    /** Absent for photographs supplied by the client. */
+    url?: string;
   };
 };
 
@@ -24,6 +25,19 @@ const unsplash = (id: string, author = "Photographe Unsplash") => ({
   source: "Unsplash" as const,
   license: "Licence Unsplash",
   url: `https://images.unsplash.com/photo-${id}`,
+});
+
+const pexels = (id: string, author: string) => ({
+  author,
+  source: "Pexels" as const,
+  license: "Licence Pexels",
+  url: `https://www.pexels.com/photo/${id}/`,
+});
+
+const client = () => ({
+  author: "ETC SAT MAROC",
+  source: "Client" as const,
+  license: "Fourni par le client",
 });
 
 const commons = (author: string, license: string, file: string) => ({
@@ -64,11 +78,12 @@ export const images = {
     credit: unsplash("1587293852726-70cdb56c2866"),
   },
   sourcing: {
-    src: "/images/sourcing/mechanical-components.jpg",
-    alt: "Vue rapprochée de composants mécaniques de précision",
+    src: "/images/sourcing/multi-screen-specialist.webp",
+    alt: "Spécialiste assis face à plusieurs écrans d'analyse de données",
     width: 2400,
-    height: 1485,
-    credit: unsplash("1537462715879-360eeb61a0ad"),
+    height: 1355,
+    position: "58% 50%",
+    credit: client(),
   },
   centralisation: {
     src: "/images/logistics/warehouse-aisle.jpg",
@@ -78,11 +93,12 @@ export const images = {
     credit: unsplash("1553413077-190dd305871c"),
   },
   repair: {
-    src: "/images/repair/technician-diagnosis.jpg",
-    alt: "Technicien réalisant un diagnostic sur un coffret électrique",
+    src: "/images/repair/electronics-technician-pcb.webp",
+    alt: "Technicien en électronique réparant une carte électronique au fer à souder dans un atelier",
     width: 2400,
-    height: 1602,
-    credit: unsplash("1621905251918-48416bd8575a"),
+    height: 1600,
+    position: "48% 55%",
+    credit: pexels("technician-soldering-circuit-board-in-lab-37426135", "Maikol Herrera"),
   },
   manufacturing: {
     src: "/images/manufacturing/robotic-cell.jpg",

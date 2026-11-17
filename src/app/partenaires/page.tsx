@@ -2,15 +2,16 @@ import { ArrowUpRight } from "lucide-react";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Brand } from "@/components/sections/LogoMarquee";
+import { ManufacturerList } from "@/components/sections/ManufacturerList";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { partners, sourcingReferences } from "@/content/network";
+import { manufacturers, manufacturersNote, partners, sourcingReferences } from "@/content/network";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Partenaires — Nos représentations au Maroc",
   description:
-    "ETC SAT MAROC représente au Maroc BLICKLE, FREUDENBERG, PROJECT INTERNATIONAL et AZOLGAS, et s'appuie sur un réseau international de sourcing.",
+    "ETC SAT MAROC représente au Maroc BLICKLE, FREUDENBERG, PROJECT INTERNATIONAL et AZOLGAS, et s'appuie sur un réseau international de sourcing couvrant les grandes marques industrielles (Endress+Hauser, Emerson, KSB, Rotork, Siemens Energy…).",
   path: "/partenaires",
 });
 
@@ -76,6 +77,20 @@ export default function PartnersPage() {
               </RevealItem>
             ))}
           </RevealGroup>
+        </div>
+      </section>
+
+      <section id="marques-fabricants" className="section scroll-mt-24">
+        <div className="container-site">
+          <SectionHeading eyebrow="Marques & fabricants" title="Les marques que nous sourçons.">
+            <p>
+              Pièces de rechange et équipements d&apos;origine des principaux fabricants industriels&nbsp;: instrumentation,
+              vannes, pompes, compresseurs, sécurité et automatismes.
+            </p>
+          </SectionHeading>
+          <div className="mt-14">
+            <ManufacturerList items={manufacturers} note={manufacturersNote} />
+          </div>
         </div>
       </section>
 
