@@ -73,7 +73,7 @@ Drop the file under `public/images/…` and update `src`, `alt`, `width`, `heigh
 ## Waiting on the client
 
 - Resend API key and a verified sender domain, so the contact form can send.
-- Official logos for the 19 clients and for BLICKLE, FREUDENBERG, AZOLGAS, ETC SILLY, SATHERM and BROP.
+- Official logos for the 30 clients and for BLICKLE, FREUDENBERG, AZOLGAS, ETC SILLY, SATHERM and BROP.
 - Confirmation of the two logos kept aside in `public/logos/partners/_unconfirmed/` (SMT Global, Hypertec System). They are not shown anywhere.
 - Exact Google Maps pins for both addresses (`mapsEmbedUrl` in `site.ts`). Until then each address links to a Maps text search.
 - LinkedIn URL (`site.social.linkedin`). The icon appears once it is set.

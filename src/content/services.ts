@@ -33,7 +33,7 @@ export const services: ServiceSummary[] = [
   {
     id: "depannage-reparation",
     number: "03",
-    name: "Dépannage & Réparation",
+    name: "Réparation",
     summary:
       "Analyse de vos équipements défectueux et gestion de leur réparation auprès des fabricants d'origine ou de centres spécialisés, quelle que soit la marque.",
     image: "repair",

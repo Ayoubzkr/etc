@@ -12,7 +12,8 @@ import { cn } from "@/lib/utils";
 const suggestions: { label: string; href: string }[] = [
   { label: "Approvisionnement & Sourcing", href: "/competences#approvisionnement-sourcing" },
   { label: "Centralisation des achats", href: "/competences#centralisation-des-achats" },
-  { label: "Dépannage & Réparation", href: "/competences#depannage-reparation" },
+  { label: "Réparation", href: "/competences#depannage-reparation" },
+  { label: "Marques & fabricants", href: "/partenaires#marques-fabricants" },
   { label: "Secteurs d'activité", href: "/secteurs" },
   { label: "Nos partenaires", href: "/partenaires" },
   { label: "Nous contacter", href: "/contact" },

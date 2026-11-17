@@ -92,7 +92,8 @@ export default function HomePage() {
           <Reveal delay={0.1} className="lg:col-span-8">
             <WorldMap />
             <div className="mt-8 flex flex-col gap-3 border-t border-navy/15 pt-5 sm:flex-row sm:items-baseline sm:gap-8">
-              <p className="shrink-0 text-xs font-medium tracking-[0.14em] text-mute uppercase">
+              <p className="flex shrink-0 items-center gap-2.5 text-xs font-medium tracking-[0.14em] text-mute uppercase">
+                <span aria-hidden className="size-2 shrink-0 rounded-full bg-navy ring-4 ring-navy/10" />
                 Pays d&apos;origine de nos partenaires et références de sourcing
               </p>
               <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm font-semibold text-navy">

@@ -13,15 +13,15 @@ const root = path.resolve(import.meta.dirname, "..");
 const pub = (...p) => path.join(root, "public", ...p);
 const UA = { "User-Agent": "asset-pipeline/1.0" };
 
+// sourcing/multi-screen-specialist.webp (client-supplied, upscaled) and repair/electronics-technician-pcb.webp
+// (Pexels) were retouched/encoded by hand: see docs/ASSET_INVENTORY.md. They are not downloaded here.
 const photos = [
   // [output path, source url]
   ["hero/automotive-robotic-line.jpg", "u:1567789884554-0b844b597180"],
   ["company/engineer-test-bench.jpg", "u:1581091226825-a6a2a5aee158"],
   ["company/container-terminal.jpg", "u:1578575437130-527eed3abbec"],
   ["logistics/warehouse-racking.jpg", "u:1587293852726-70cdb56c2866"],
-  ["sourcing/mechanical-components.jpg", "u:1537462715879-360eeb61a0ad"],
   ["logistics/warehouse-aisle.jpg", "u:1553413077-190dd305871c"],
-  ["repair/technician-diagnosis.jpg", "u:1621905251918-48416bd8575a"],
   ["manufacturing/robotic-cell.jpg", "u:1563968743333-044cef800494"],
   ["energy/power-lines.jpg", "u:1473341304170-971dccb5ac1e"],
   ["chemical-industry/refinery.jpg", "u:1516937941344-00b4e0337589"],
